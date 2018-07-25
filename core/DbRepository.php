@@ -17,20 +17,18 @@ class DbRepository
     public function execute($sql, $params = [])
     {
         $stmt = $this->con->prepare($sql);
-        $stmt->exceute($params);
+        $stmt->execute($params);
 
         return $stmt;
     }
 
-    public function execute($sql, $params = [])
+    public function fetch($sql, $params = [])
     {
-        $stmt = $this->con->prepare($sql);
-        $stmt->excute($sql, $params)->fetch(PDO::FETCH_ASSOC);
+        return $this->execute($sql, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function execute($sql, $params = [])
+    public function fetchAll($sql, $params = [])
     {
-        $stmt = $this->con->prepare($sql);
-        $stms->excute($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->execute($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 }

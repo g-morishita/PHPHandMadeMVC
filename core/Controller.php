@@ -13,9 +13,9 @@ Class Controller
 
     public function __construct($application)
     {
-        $this->controller_name = strtolower(substr(get_class($this), 0, -10)));
+        $this->controller_name = strtolower(substr(get_class($this), 0, -10));
 
-        $this->application = $application
+        $this->application = $application;
         $this->request     = $application->getRequest();
         $this->response    = $application->getResponse();
         $this->session     = $application->getSession();
@@ -53,20 +53,22 @@ Class Controller
     protected function render($variables = [], $template = null, $layout = "layout")
     {
         $defaults = [ "request" => $this->request,
-                      "baseDir" => $this->request->getBaseUrl(),
+                      "base_url" => $this->request->getBaseUrl(),
                       "session" => $this->session, 
                     ];
+
         $view = new View($this->application->getViewDir(), $defaults);
         
         if (is_null($template)) {
             $template = $this->action_name; 
         }
     
-        $path = $controller_name . '/' . $template;
+        $path = $this->controller_name . '/' . $template;
 
         return $view->render($path, $variables, $layout);
 
     }
+
     protected function forward404()
     {
         throw new HttpNotFoundException("Forwardded 404 page from " . $this->controller_name . '/' . $this->action_name);
@@ -76,7 +78,7 @@ Class Controller
     {
         if(!preg_match("#https?://#", $url)) {
             $protocol = $this->request->isSsl() ? "https://" : "http://";
-            $host = $this->getHost();
+            $host = $this->request->getHost();
             $base_url = $this->request->getBaseUrl();
     
             $url = $protocol . $host . $base_url;
@@ -103,13 +105,13 @@ Class Controller
     protected function checkCsrfToken($form_name, $token)
     {
         $key = "csrf_tokens/" . $form_name;
-        $token = $this->session->get($key, []);
+        $tokens = $this->session->get($key, []);
 
         if ( false !== ($pos = array_search($token, $tokens, true)) ) {
             unset($tokens[$pos]);
             $this->session->set($key, $tokens);
 
-            return true
+            return true;
         }
 
         return false;

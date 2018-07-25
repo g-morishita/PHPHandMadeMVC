@@ -4,178 +4,211 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-Application	core/Application.php	/^abstract class Application$/;"	c	language:PHP
-ClassLoader	core/ClassLoader.php	/^class ClassLoader $/;"	c	language:PHP
-DbManager	core/DbManager.php	/^class DbManager$/;"	c	language:PHP
-DbRepository	core/DbRepository.php	/^class DbRepository$/;"	c	language:PHP
-HttpNotFoundException	core/HttpNotFoundException.php	/^class HttpNotFoundException extends Exception {};$/;"	c	language:PHP
-Request	core/Request.php	/^class Request {$/;"	c	language:PHP
-Response	core/Response.php	/^class Response $/;"	c	language:PHP
-Router	core/Router.php	/^class Router$/;"	c	language:PHP
-Session	core/Session.php	/^class Session$/;"	c	language:PHP
-UnauthorizedActionException	core/UnauthorizedActionException.php	/^class UnauthorizedActionException extends Exception {}$/;"	c	language:PHP
-View	core/View.php	/^class View$/;"	c	language:PHP
-_SESSION	core/Session.php	/^        $_SESSION = [];$/;"	v	language:PHP
-__construct	core/Application.php	/^    public function __construct($debug = false) $/;"	f	language:PHP
-__construct	core/ClassLoader.php	/^    private function __construct($dirs) $/;"	f	language:PHP
-__construct	core/Controller.php	/^    public function __construct($application)$/;"	f	language:PHP
-__construct	core/DbRepository.php	/^    public function __construct($con)$/;"	f	language:PHP
-__construct	core/Router.php	/^    public function __construct($defenitions)$/;"	f	language:PHP
-__construct	core/Session.php	/^    public function __construct()$/;"	f	language:PHP
-__construct	core/View.php	/^    public function __construct($base_dir, $defaults)$/;"	f	language:PHP
-__destruct	core/DbManager.php	/^    public function __destruct()$/;"	f	language:PHP
-_file	core/View.php	/^        $_file = $this->base_dir . '\/' . $path . ".php";$/;"	v	language:PHP
-action	core/Application.php	/^            $action     = $param["action"];$/;"	v	language:PHP
-action_method	core/Controller.php	/^        $action_method = $action . "Action";$/;"	v	language:PHP
-action_name	core/Controller.php	/^        $this->action_name = $action;$/;"	v	language:PHP
-action_name	core/Controller.php	/^    protected $action_name;$/;"	v	language:PHP
-application	core/Controller.php	/^        $this->application = $application$/;"	v	language:PHP
-application	core/Controller.php	/^    protected $application;$/;"	v	language:PHP
-auth_actions	core/Controller.php	/^    protected $auth_actions = [];$/;"	v	language:PHP
-base_dir	core/View.php	/^        $this->base_dir = $base_dir;$/;"	v	language:PHP
-base_dir	core/View.php	/^    protected $base_dir;$/;"	v	language:PHP
-base_url	core/Controller.php	/^            $base_url = $this->request->getBaseUrl();$/;"	v	language:PHP
-base_url	core/Request.php	/^        $base_url = $this->getBaseUrl();$/;"	v	language:PHP
-checkCsrfToken	core/Controller.php	/^    protected function checkCsrfToken($form_name, $token)$/;"	f	language:PHP
-classLoader	bootstrap.php	/^$classLoader = ClassLoader::getInstance(array(dirname(__FILE__) . '\/core', dirname(__FILE__) . '\/models'));$/;"	v	language:PHP
-classLoader	core/ClassLoader.php	/^    private static $classLoader;$/;"	v	language:PHP
-clear	core/Session.php	/^    public function clear()$/;"	f	language:PHP
-compileRoutes	core/Router.php	/^    public function compileRoutes($defenitions)$/;"	f	language:PHP
-con	core/DbManager.php	/^            $con = $this->getConnection($name);$/;"	v	language:PHP
-con	core/DbManager.php	/^            $con = $this->getConnection();$/;"	v	language:PHP
-con	core/DbManager.php	/^            $con = $this->getConnectionForRepository($repository_name);$/;"	v	language:PHP
-con	core/DbManager.php	/^        $con = new PDO($/;"	v	language:PHP
-con	core/DbRepository.php	/^        $this->con = $con;$/;"	v	language:PHP
-con	core/DbRepository.php	/^    protected $con;$/;"	v	language:PHP
-configure	core/Application.php	/^    protected function configure()$/;"	f	language:PHP
-connect	core/DbManager.php	/^    public function connect($name, $params)$/;"	f	language:PHP
-connections	core/DbManager.php	/^    protected $connections = [];$/;"	v	language:PHP
-content	core/Application.php	/^        $content = $controller->run($action, $params);$/;"	v	language:PHP
-content	core/Controller.php	/^        $content = $this->$action_method($params);$/;"	v	language:PHP
-content	core/Response.php	/^        $this->content = $content;$/;"	v	language:PHP
-content	core/Response.php	/^    protected $content;$/;"	v	language:PHP
-content	core/View.php	/^            $content = $this->render($_layout,$/;"	v	language:PHP
-content	core/View.php	/^        $content = ob_get_clean();$/;"	v	language:PHP
-controller	core/Application.php	/^            $controller = $param["controller"];$/;"	v	language:PHP
-controller	core/Application.php	/^        $controller = $this->findController($controller_class);$/;"	v	language:PHP
-controller_class	core/Application.php	/^        $controller_class = ucfirst($controller_name) . "Controller";$/;"	v	language:PHP
-controller_file	core/Application.php	/^            $controller_file = this->getCotrollerDir() . '\/' . $controller_class;$/;"	v	language:PHP
-controller_name	core/Controller.php	/^        $this->controller_name = strtolower(substr(get_class($this), 0, -10)));$/;"	v	language:PHP
-controller_name	core/Controller.php	/^    protected $controller_name;$/;"	v	language:PHP
-db_manager	core/Application.php	/^        $this->db_manager = new DbManager();$/;"	v	language:PHP
-db_manager	core/Controller.php	/^        $this->db_manager  = $application->getDbManager();$/;"	v	language:PHP
-db_manager	core/Controller.php	/^    protected $db_manager;$/;"	v	language:PHP
-debug	core/Application.php	/^            $this->debug = true;$/;"	v	language:PHP
-debug	core/Application.php	/^    $debug = false;$/;"	v	language:PHP
-defaults	core/Controller.php	/^        $defaults = [ "request" => $this->request,$/;"	v	language:PHP
-defaults	core/View.php	/^        $this->defaults = $defaults;$/;"	v	language:PHP
-defaults	core/View.php	/^    protected $defaults;$/;"	v	language:PHP
-dirs	core/ClassLoader.php	/^        $this->dirs = $dirs;$/;"	v	language:PHP
-dirs	core/ClassLoader.php	/^    private $dirs;$/;"	v	language:PHP
-escape	core/View.php	/^        public function escape($string)$/;"	f	language:PHP
-execute	core/DbRepository.php	/^    public function execute($sql, $params = [])$/;"	f	language:PHP
-file	core/ClassLoader.php	/^            $file = $dir . '\/' . $class . '.php';$/;"	v	language:PHP
-findControlle	core/Application.php	/^    protected function findControlle($controller_class)$/;"	f	language:PHP
-foo	models/Boo.php	/^$foo = new Foo();$/;"	v	language:PHP
-forward404	core/Controller.php	/^    protected function forward404()$/;"	f	language:PHP
-generateCsrfToken	core/Controller.php	/^    protected function generateCsrfToken($form_name)$/;"	f	language:PHP
-get	core/DbManager.php	/^    public function get($repository_name)$/;"	f	language:PHP
-get	core/Session.php	/^    public function get($name, $default = null)$/;"	f	language:PHP
-getBaseUrl	core/Request.php	/^    public function getBaseUrl()$/;"	f	language:PHP
-getConnection	core/DbManager.php	/^    public function getConnection($name = null)$/;"	f	language:PHP
-getConnectionForRepository	core/DbManager.php	/^    public function getConnectionForRepository($repository_name)$/;"	f	language:PHP
-getCotrollerDir	core/Application.php	/^    public function getCotrollerDir()$/;"	f	language:PHP
-getDbManager	core/Application.php	/^    public function getDbManager()$/;"	f	language:PHP
-getGet	core/Request.php	/^    public function getGet($name, $default = null)$/;"	f	language:PHP
-getHost	core/Request.php	/^    public function getHost()$/;"	f	language:PHP
-getInstance	core/ClassLoader.php	/^    public function getInstance($dirs) $/;"	f	language:PHP
-getPathInfo	core/Request.php	/^    public function getPathInfo()$/;"	f	language:PHP
-getPost	core/Request.php	/^    public function getPost($name, $defautl = null)$/;"	f	language:PHP
-getRequest	core/Application.php	/^    public function getRequest()$/;"	f	language:PHP
-getRequestUri	core/Request.php	/^    public function getRequestUri() $/;"	f	language:PHP
-getResponse	core/Application.php	/^    public function getResponse()$/;"	f	language:PHP
-getSession	core/Application.php	/^    public function getSession()$/;"	f	language:PHP
-getViewDir	core/Application.php	/^    public function getViewDir()$/;"	f	language:PHP
-getWebDir	core/Application.php	/^    public function getWebDir()$/;"	f	language:PHP
-host	core/Controller.php	/^            $host = $this->getHost();$/;"	v	language:PHP
-http_headers	core/Response.php	/^    protected $http_headers = [];$/;"	v	language:PHP
-initialize	core/Application.php	/^    protected function initialize()$/;"	f	language:PHP
-isAuthenticated	core/Session.php	/^    public function isAuthenticated()$/;"	f	language:PHP
-isDebugMode	core/Application.php	/^    public function isDebugMode()$/;"	f	language:PHP
-isPost	core/Request.php	/^    public function isPost() $/;"	f	language:PHP
-isSsl	core/Request.php	/^    public function isSsl()$/;"	f	language:PHP
-key	core/Controller.php	/^        $key = "csrf_tokens\/" . $form_name;$/;"	v	language:PHP
-layout_variables	core/View.php	/^    protected $layout_variables = [];$/;"	v	language:PHP
-loadClass	core/ClassLoader.php	/^    private function loadClass($class)$/;"	f	language:PHP
-login_action	core/Application.php	/^    $login_action = [];$/;"	v	language:PHP
-message	core/Application.php	/^        $message = $this->isDebugMode() ? $e->getMessage() : 'Page Not Found';$/;"	v	language:PHP
-message	core/Application.php	/^        $message = htmlspecialchars($message, ENT_QUOTES, "UTF-8");$/;"	v	language:PHP
-name	core/DbManager.php	/^            $name = $this->repository_connection_map[$repository_name];$/;"	v	language:PHP
-name	core/Router.php	/^                    $name = substr($token, 1);$/;"	v	language:PHP
-needsAuthentication	core/Controller.php	/^    protected function needsAuthentication($action) $/;"	f	language:PHP
-param	core/Application.php	/^            $param = $this->router->resolve($this->request->getPathInfo());$/;"	v	language:PHP
-param	core/Router.php	/^                $param = array_merge($param, $matches);$/;"	v	language:PHP
-params	core/DbManager.php	/^        $params = array_merge([$/;"	v	language:PHP
-path	core/Controller.php	/^        $path = $controller_name . '\/' . $template;$/;"	v	language:PHP
-path_info	core/Request.php	/^        $path_info = (string)substr($request_uri, strlen($base_url));$/;"	v	language:PHP
-path_info	core/Router.php	/^            $path_info = '\/' . $path_info;$/;"	v	language:PHP
-patterns	core/Router.php	/^            $patterns = '\/' . implode('\/', $tokens);$/;"	v	language:PHP
-protocol	core/Controller.php	/^            $protocol = $this->request->isSsl() ? "https:\/\/" : "http:\/\/";$/;"	v	language:PHP
-redirect	core/Controller.php	/^    protected function redirect($url)$/;"	f	language:PHP
-regenerate	core/Session.php	/^    public function regenerate($destroy = true)$/;"	f	language:PHP
-register	core/ClassLoader.php	/^    public function register()$/;"	f	language:PHP
-remove	core/Session.php	/^    public function remove($name) $/;"	f	language:PHP
-render	core/Controller.php	/^    protected function render($variables = [], $template = null, $layout = "layout")$/;"	f	language:PHP
-render	core/View.php	/^    public function render($_path, $_variables, $_layout = false)$/;"	f	language:PHP
-render404Page	core/Application.php	/^    protected function render404Page($e)$/;"	f	language:PHP
-repositories	core/DbManager.php	/^    protected $repositories = [];$/;"	v	language:PHP
-repository	core/DbManager.php	/^            $repository = new $repository_class($con);$/;"	v	language:PHP
-repository_class	core/DbManager.php	/^            $repository_class = $repository_name . "Repository";$/;"	v	language:PHP
-repository_connection_map	core/DbManager.php	/^    protected $repository_connection_map = [];$/;"	v	language:PHP
-request	core/Application.php	/^        $this->request    = new Request();$/;"	v	language:PHP
-request	core/Controller.php	/^        $this->request     = $application->getRequest();$/;"	v	language:PHP
-request	core/Controller.php	/^    protected $request;$/;"	v	language:PHP
-request_uri	core/Request.php	/^            $request_uri = substr($request_uri, 0, $pos);$/;"	v	language:PHP
-request_uri	core/Request.php	/^        $request_uri = $this->getRequestUri();$/;"	v	language:PHP
-resolve	core/Router.php	/^    public function resolve($path_info)$/;"	f	language:PHP
-response	core/Application.php	/^        $this->response   = new Response();$/;"	v	language:PHP
-response	core/Controller.php	/^        $this->response    = $application->getResponse();$/;"	v	language:PHP
-response	core/Controller.php	/^    protected $response;$/;"	v	language:PHP
-router	core/Application.php	/^        $this->router     = new Router($this->registerRoutes());$/;"	v	language:PHP
-routes	core/Router.php	/^        $routes = [];$/;"	v	language:PHP
-routes	core/Router.php	/^        $this->routes = $this->compileRoutes($defenitions); $/;"	v	language:PHP
-routes	core/Router.php	/^    protected $routes;$/;"	v	language:PHP
-run	core/Application.php	/^    public function run()$/;"	f	language:PHP
-run	core/Controller.php	/^    public function run($action, $params = []) {$/;"	f	language:PHP
-runAction	core/Application.php	/^    public function runAction($controller_name, $action, $params = []) $/;"	f	language:PHP
-script_name	core/Request.php	/^        $script_name = $_SERVER["SCRIPT_NAME"];$/;"	v	language:PHP
-send	core/Response.php	/^    public function send()$/;"	f	language:PHP
-session	core/Application.php	/^        $this->session    = new Session();$/;"	v	language:PHP
-session	core/Controller.php	/^        $this->session     = $application->getSession();$/;"	v	language:PHP
-session	core/Controller.php	/^    protected $session;$/;"	v	language:PHP
-sessionIdRegenerated	core/Session.php	/^            $sessionIdRegenerated = true;$/;"	v	language:PHP
-sessionIdRegenerated	core/Session.php	/^    protected static $sessionIdRegenerated = false;$/;"	v	language:PHP
-sessionStarted	core/Session.php	/^            $sessionStarted = true;$/;"	v	language:PHP
-sessionStarted	core/Session.php	/^    protected static $sessionStarted = false;$/;"	v	language:PHP
-set	core/Session.php	/^    public function set($name, $value)$/;"	f	language:PHP
-setAuthenticated	core/Session.php	/^    public function setAuthenticated($bool)$/;"	f	language:PHP
-setConnection	core/DbRepository.php	/^    public function setConnection($con)$/;"	f	language:PHP
-setContent	core/Response.php	/^    public function setContent($content)$/;"	f	language:PHP
-setDebugMode	core/Application.php	/^    protected function setDebugMode($debug)$/;"	f	language:PHP
-setHttpHeader	core/Response.php	/^    public function setHttpHeader($name, $value)$/;"	f	language:PHP
-setLayoutVar	core/View.php	/^    public function setLayoutVar($name, $val)$/;"	f	language:PHP
-setRepositoryConnectionMap	core/DbManager.php	/^    public function setRepositoryConnectionMap($repository_name, $name)$/;"	f	language:PHP
-setStatusCode	core/Response.php	/^    public function setStatusCode($status_code, $status_text = '') $/;"	f	language:PHP
-status_code	core/Response.php	/^        $this->status_code = $status_code;$/;"	v	language:PHP
-status_code	core/Response.php	/^    protected $status_code = 200;$/;"	v	language:PHP
-status_text	core/Response.php	/^        $this->status_text = $status_text;$/;"	v	language:PHP
-status_text	core/Response.php	/^    protected $status_text = "OK";$/;"	v	language:PHP
-stmt	core/DbRepository.php	/^        $stmt = $this->con->prepare($sql);$/;"	v	language:PHP
-template	core/Controller.php	/^            $template = $this->action_name; $/;"	v	language:PHP
-token	core/Controller.php	/^        $token = $this->session->get($key, []);$/;"	v	language:PHP
-token	core/Controller.php	/^        $token = sha1($form_name . session_id() . microtime());$/;"	v	language:PHP
-token	core/Router.php	/^                    $token = "?P<" . $name . ">[^\/]+";$/;"	v	language:PHP
-tokens	core/Controller.php	/^        $tokens = $this->session->get($key, []); $/;"	v	language:PHP
-tokens	core/Router.php	/^            $tokens = explode('\/', ltrim($url, '\/')); $/;"	v	language:PHP
-url	core/Controller.php	/^            $url = $protocol . $host . $base_url;$/;"	v	language:PHP
-view	core/Controller.php	/^        $view = new View($this->application->getViewDir(), $defaults);$/;"	v	language:PHP
+AccountController	controllers/AccountController.php	/^class AccountController extends Controller$/;"	c
+Application	core/Application.php	/^abstract class Application$/;"	c
+ClassLoader	core/ClassLoader.php	/^class ClassLoader $/;"	c
+DbManager	core/DbManager.php	/^class DbManager$/;"	c
+DbRepository	core/DbRepository.php	/^class DbRepository$/;"	c
+HttpNotFoundException	core/HttpNotFoundException.php	/^class HttpNotFoundException extends Exception {};$/;"	c
+MiniBlogApplication	MiniBlogApplication.php	/^class MiniBlogApplication extends Application$/;"	c
+Request	core/Request.php	/^class Request {$/;"	c
+Response	core/Response.php	/^class Response $/;"	c
+Router	core/Router.php	/^class Router$/;"	c
+Session	core/Session.php	/^class Session$/;"	c
+UnauthorizedActionException	core/UnauthorizedActionException.php	/^class UnauthorizedActionException extends Exception {}$/;"	c
+UserRepository	models/UserRepository.php	/^class UserRepository extends DbRepository$/;"	c
+View	core/View.php	/^class View$/;"	c
+_SESSION	core/Session.php	/^        $_SESSION = [];$/;"	v
+__construct	core/Application.php	/^    public function __construct($debug = false) $/;"	f
+__construct	core/ClassLoader.php	/^    private function __construct($dirs) $/;"	f
+__construct	core/Controller.php	/^    public function __construct($application)$/;"	f
+__construct	core/DbRepository.php	/^    public function __construct($con)$/;"	f
+__construct	core/Router.php	/^    public function __construct($defenitions)$/;"	f
+__construct	core/Session.php	/^    public function __construct()$/;"	f
+__construct	core/View.php	/^    public function __construct($base_dir, $defaults)$/;"	f
+__destruct	core/DbManager.php	/^    public function __destruct()$/;"	f
+_file	core/View.php	/^        $_file = $this->base_dir . '\/' . $_path . ".php";$/;"	v
+action	core/Application.php	/^            $action     = $param["action"];$/;"	v
+action_method	core/Controller.php	/^        $action_method = $action . "Action";$/;"	v
+action_name	core/Controller.php	/^        $this->action_name = $action;$/;"	v
+action_name	core/Controller.php	/^    protected $action_name;$/;"	v
+app	web/index.php	/^$app = new MiniBlogApplication(false);$/;"	v
+app	web/index_dev.php	/^$app = new MiniBlogApplication(true);$/;"	v
+application	core/Controller.php	/^        $this->application = $application;$/;"	v
+application	core/Controller.php	/^    protected $application;$/;"	v
+auth_actions	core/Controller.php	/^    protected $auth_actions = [];$/;"	v
+base_dir	core/View.php	/^        $this->base_dir = $base_dir;$/;"	v
+base_dir	core/View.php	/^    protected $base_dir;$/;"	v
+base_url	core/Controller.php	/^            $base_url = $this->request->getBaseUrl();$/;"	v
+base_url	core/Request.php	/^        $base_url = $this->getBaseUrl();$/;"	v
+checkCsrfToken	core/Controller.php	/^    protected function checkCsrfToken($form_name, $token)$/;"	f
+classLoader	bootstrap.php	/^$classLoader = ClassLoader::getInstance(array(dirname(__FILE__) . '\/core', dirname(__FILE__) . '\/models'));$/;"	v
+classLoader	core/ClassLoader.php	/^    private static $classLoader;$/;"	v
+clear	core/Session.php	/^    public function clear()$/;"	f
+compileRoutes	core/Router.php	/^    public function compileRoutes($defenitions)$/;"	f
+con	core/DbManager.php	/^            $con = $this->getConnection($name);$/;"	v
+con	core/DbManager.php	/^            $con = $this->getConnection();$/;"	v
+con	core/DbManager.php	/^            $con = $this->getConnectionForRepository($repository_name);$/;"	v
+con	core/DbManager.php	/^        $con = new PDO($/;"	v
+con	core/DbRepository.php	/^        $this->con = $con;$/;"	v
+con	core/DbRepository.php	/^    protected $con;$/;"	v
+configure	MiniBlogApplication.php	/^    protected function configure()$/;"	f
+configure	core/Application.php	/^    protected function configure()$/;"	f
+connect	core/DbManager.php	/^    public function connect($name, $params)$/;"	f
+connections	core/DbManager.php	/^    protected $connections = [];$/;"	v
+content	core/Application.php	/^        $content = $controller->run($action, $params);$/;"	v
+content	core/Controller.php	/^        $content = $this->$action_method($params);$/;"	v
+content	core/Response.php	/^        $this->content = $content;$/;"	v
+content	core/Response.php	/^    protected $content;$/;"	v
+content	core/View.php	/^            $content = $this->render($_layout,$/;"	v
+content	core/View.php	/^        $content = ob_get_clean();$/;"	v
+controller	core/Application.php	/^            $controller = $param["controller"];$/;"	v
+controller	core/Application.php	/^        $controller = $this->findController($controller_class);$/;"	v
+controller_class	core/Application.php	/^        $controller_class = ucfirst($controller_name) . "Controller";$/;"	v
+controller_file	core/Application.php	/^            $controller_file = $this->getCotrollerDir() . '\/' . $controller_class . ".php";$/;"	v
+controller_name	core/Controller.php	/^        $this->controller_name = strtolower(substr(get_class($this), 0, -10));$/;"	v
+controller_name	core/Controller.php	/^    protected $controller_name;$/;"	v
+db_manager	core/Application.php	/^        $this->db_manager = new DbManager();$/;"	v
+db_manager	core/Application.php	/^    protected $db_manager;$/;"	v
+db_manager	core/Controller.php	/^        $this->db_manager  = $application->getDbManager();$/;"	v
+db_manager	core/Controller.php	/^    protected $db_manager;$/;"	v
+debug	core/Application.php	/^            $this->debug = true;$/;"	v
+debug	core/Application.php	/^    protected $debug = false;$/;"	v
+defaults	core/Controller.php	/^        $defaults = [ "request" => $this->request,$/;"	v
+defaults	core/View.php	/^        $this->defaults = $defaults;$/;"	v
+defaults	core/View.php	/^    protected $defaults;$/;"	v
+dirs	core/ClassLoader.php	/^        $this->dirs = $dirs;$/;"	v
+dirs	core/ClassLoader.php	/^    private $dirs;$/;"	v
+errors	controllers/AccountController.php	/^        $errors = [];$/;"	v
+escape	core/View.php	/^    public function escape($string)$/;"	f
+execute	core/DbRepository.php	/^    public function execute($sql, $params = [])$/;"	f
+fetch	core/DbRepository.php	/^    public function fetch($sql, $params = [])$/;"	f
+fetchAll	core/DbRepository.php	/^    public function fetchAll($sql, $params = [])$/;"	f
+fetchByUserName	models/UserRepository.php	/^    public function fetchByUserName($user_name)$/;"	f
+file	core/ClassLoader.php	/^            $file = $dir . '\/' . $class . '.php';$/;"	v
+findController	core/Application.php	/^    protected function findController($controller_class)$/;"	f
+forward404	core/Controller.php	/^    protected function forward404()$/;"	f
+generateCsrfToken	core/Controller.php	/^    protected function generateCsrfToken($form_name)$/;"	f
+get	core/DbManager.php	/^    public function get($repository_name)$/;"	f
+get	core/Session.php	/^    public function get($name, $default = null)$/;"	f
+getBaseUrl	core/Request.php	/^    public function getBaseUrl()$/;"	f
+getConnection	core/DbManager.php	/^    public function getConnection($name = null)$/;"	f
+getConnectionForRepository	core/DbManager.php	/^    public function getConnectionForRepository($repository_name)$/;"	f
+getCotrollerDir	core/Application.php	/^    public function getCotrollerDir()$/;"	f
+getDbManager	core/Application.php	/^    public function getDbManager()$/;"	f
+getGet	core/Request.php	/^    public function getGet($name, $default = null)$/;"	f
+getHost	core/Request.php	/^    public function getHost()$/;"	f
+getInstance	core/ClassLoader.php	/^    public function getInstance($dirs) $/;"	f
+getModelDir	core/Application.php	/^    public function getModelDir()$/;"	f
+getPathInfo	core/Request.php	/^    public function getPathInfo()$/;"	f
+getPost	core/Request.php	/^    public function getPost($name, $default = null)$/;"	f
+getRequest	core/Application.php	/^    public function getRequest()$/;"	f
+getRequestUri	core/Request.php	/^    public function getRequestUri() $/;"	f
+getResponse	core/Application.php	/^    public function getResponse()$/;"	f
+getRootDir	MiniBlogApplication.php	/^    public function getRootDir()$/;"	f
+getSession	core/Application.php	/^    public function getSession()$/;"	f
+getViewDir	core/Application.php	/^    public function getViewDir()$/;"	f
+getWebDir	core/Application.php	/^    public function getWebDir()$/;"	f
+hashPassword	models/UserRepository.php	/^    public function hashPassword($password)$/;"	f
+host	core/Controller.php	/^            $host = $this->request->getHost();$/;"	v
+http_headers	core/Response.php	/^    protected $http_headers = [];$/;"	v
+initialize	core/Application.php	/^    protected function initialize()$/;"	f
+insert	models/UserRepository.php	/^    public function insert($user_name, $password)$/;"	f
+isAuthenticated	core/Session.php	/^    public function isAuthenticated()$/;"	f
+isDebugMode	core/Application.php	/^    public function isDebugMode()$/;"	f
+isPost	core/Request.php	/^    public function isPost() $/;"	f
+isSsl	core/Request.php	/^    public function isSsl()$/;"	f
+isUniqueUserName	models/UserRepository.php	/^    public function isUniqueUserName($user_name)$/;"	f
+key	core/Controller.php	/^        $key = "csrf_tokens\/" . $form_name;$/;"	v
+layout_variables	core/View.php	/^    protected $layout_variables = [];$/;"	v
+loadClass	core/ClassLoader.php	/^    private function loadClass($class)$/;"	f
+login_action	MiniBlogApplication.php	/^    protected $login_action = ['account', 'signin'];$/;"	v
+login_action	core/Application.php	/^    protected $login_action = [];$/;"	v
+message	core/Application.php	/^        $message = $this->isDebugMode() ? $e->getMessage() : 'Page Not Found';$/;"	v
+message	core/Application.php	/^        $message = htmlspecialchars($message, ENT_QUOTES, "UTF-8");$/;"	v
+name	core/DbManager.php	/^            $name = $this->repository_connection_map[$repository_name];$/;"	v
+name	core/Router.php	/^                    $name = substr($token, 1);$/;"	v
+needsAuthentication	core/Controller.php	/^    protected function needsAuthentication($action) $/;"	f
+now	models/UserRepository.php	/^        $now      = new DateTime();$/;"	v
+param	core/Application.php	/^            $param = $this->router->resolve($this->request->getPathInfo());$/;"	v
+params	core/DbManager.php	/^        $params = array_merge([$/;"	v
+params	core/Router.php	/^                $params = array_merge($params, $matches);$/;"	v
+password	controllers/AccountController.php	/^        $password = $this->request->getPost('password');$/;"	v
+password	models/UserRepository.php	/^        $password = $this->hashPassword($password);$/;"	v
+path	core/Controller.php	/^        $path = $this->controller_name . '\/' . $template;$/;"	v
+path_info	core/Request.php	/^        $path_info = (string)substr($request_uri, strlen($base_url));$/;"	v
+path_info	core/Router.php	/^            $path_info = '\/' . $path_info;$/;"	v
+pattern	core/Router.php	/^            $pattern = '\/' . implode('\/', $tokens);$/;"	v
+protocol	core/Controller.php	/^            $protocol = $this->request->isSsl() ? "https:\/\/" : "http:\/\/";$/;"	v
+redirect	core/Controller.php	/^    protected function redirect($url)$/;"	f
+regenerate	core/Session.php	/^    public function regenerate($destroy = true)$/;"	f
+register	core/ClassLoader.php	/^    public function register()$/;"	f
+registerAction	controllers/AccountController.php	/^    public function registerAction()$/;"	f
+registerRoutes	MiniBlogApplication.php	/^    protected function registerRoutes()$/;"	f
+remove	core/Session.php	/^    public function remove($name) $/;"	f
+render	core/Controller.php	/^    protected function render($variables = [], $template = null, $layout = "layout")$/;"	f
+render	core/View.php	/^    public function render($_path, $_variables, $_layout = false)$/;"	f
+render404Page	core/Application.php	/^    protected function render404Page($e)$/;"	f
+repositories	core/DbManager.php	/^    protected $repositories = [];$/;"	v
+repository	core/DbManager.php	/^            $repository = new $repository_class($con);$/;"	v
+repository_class	core/DbManager.php	/^            $repository_class = $repository_name . "Repository";$/;"	v
+repository_connection_map	core/DbManager.php	/^    protected $repository_connection_map = [];$/;"	v
+request	core/Application.php	/^        $this->request    = new Request();$/;"	v
+request	core/Application.php	/^    protected $request;$/;"	v
+request	core/Controller.php	/^        $this->request     = $application->getRequest();$/;"	v
+request	core/Controller.php	/^    protected $request;$/;"	v
+request_uri	core/Request.php	/^            $request_uri = substr($request_uri, 0, $pos);$/;"	v
+request_uri	core/Request.php	/^        $request_uri = $this->getRequestUri();$/;"	v
+resolve	core/Router.php	/^    public function resolve($path_info)$/;"	f
+response	core/Application.php	/^        $this->response   = new Response();$/;"	v
+response	core/Application.php	/^    protected $response;$/;"	v
+response	core/Controller.php	/^        $this->response    = $application->getResponse();$/;"	v
+response	core/Controller.php	/^    protected $response;$/;"	v
+router	core/Application.php	/^        $this->router     = new Router($this->registerRoutes());$/;"	v
+routes	core/Router.php	/^        $routes = [];$/;"	v
+routes	core/Router.php	/^        $this->routes = $this->compileRoutes($defenitions); $/;"	v
+routes	core/Router.php	/^    protected $routes;$/;"	v
+row	models/UserRepository.php	/^        $row = $this->fetch($sql, [':user_name' => $user_name]);$/;"	v
+run	core/Application.php	/^    public function run()$/;"	f
+run	core/Controller.php	/^    public function run($action, $params = []) {$/;"	f
+runAction	core/Application.php	/^    public function runAction($controller_name, $action, $params = []) $/;"	f
+script_name	core/Request.php	/^        $script_name = $_SERVER["SCRIPT_NAME"];$/;"	v
+send	core/Response.php	/^    public function send()$/;"	f
+session	core/Application.php	/^        $this->session    = new Session();$/;"	v
+session	core/Application.php	/^    protected $session;$/;"	v
+session	core/Controller.php	/^        $this->session     = $application->getSession();$/;"	v
+session	core/Controller.php	/^    protected $session;$/;"	v
+sessionIdRegenerated	core/Session.php	/^            $sessionIdRegenerated = true;$/;"	v
+sessionIdRegenerated	core/Session.php	/^    protected static $sessionIdRegenerated = false;$/;"	v
+sessionStarted	core/Session.php	/^            $sessionStarted = true;$/;"	v
+sessionStarted	core/Session.php	/^    protected static $sessionStarted = false;$/;"	v
+set	core/Session.php	/^    public function set($name, $value)$/;"	f
+setAuthenticated	core/Session.php	/^    public function setAuthenticated($bool)$/;"	f
+setConnection	core/DbRepository.php	/^    public function setConnection($con)$/;"	f
+setContent	core/Response.php	/^    public function setContent($content)$/;"	f
+setDebugMode	core/Application.php	/^    protected function setDebugMode($debug)$/;"	f
+setHttpHeader	core/Response.php	/^    public function setHttpHeader($name, $value)$/;"	f
+setLayoutVar	core/View.php	/^    public function setLayoutVar($name, $val)$/;"	f
+setRepositoryConnectionMap	core/DbManager.php	/^    public function setRepositoryConnectionMap($repository_name, $name)$/;"	f
+setStatusCode	core/Response.php	/^    public function setStatusCode($status_code, $status_text = '') $/;"	f
+signupAction	controllers/AccountController.php	/^    public function signupAction()$/;"	f
+sql	models/UserRepository.php	/^        $sql = "$/;"	v
+sql	models/UserRepository.php	/^        $sql = "SELECT * FROM user WHERE user_name = :user_name";$/;"	v
+sql	models/UserRepository.php	/^        $sql = "SELECT COUNT(id) as count FROM user WHERE user_name = :user_name";$/;"	v
+status_code	core/Response.php	/^        $this->status_code = $status_code;$/;"	v
+status_code	core/Response.php	/^    protected $status_code = 200;$/;"	v
+status_text	core/Response.php	/^        $this->status_text = $status_text;$/;"	v
+status_text	core/Response.php	/^    protected $status_text = "OK";$/;"	v
+stmt	core/DbRepository.php	/^        $stmt = $this->con->prepare($sql);$/;"	v
+stmt	models/UserRepository.php	/^        $stmt = $this->execute($sql, [$/;"	v
+template	core/Controller.php	/^            $template = $this->action_name; $/;"	v
+token	controllers/AccountController.php	/^        $token = $this->request->getPost('_token');$/;"	v
+token	core/Controller.php	/^        $token = sha1($form_name . session_id() . microtime());$/;"	v
+token	core/Router.php	/^                    $token = '(?P<' . $name . '>[^\/]+)';$/;"	v
+tokens	core/Controller.php	/^        $tokens = $this->session->get($key, []); $/;"	v
+tokens	core/Controller.php	/^        $tokens = $this->session->get($key, []);$/;"	v
+tokens	core/Router.php	/^            $tokens = explode('\/', ltrim($url, '\/')); $/;"	v
+url	core/Controller.php	/^            $url = $protocol . $host . $base_url;$/;"	v
+user	controllers/AccountController.php	/^            $user = $this->db_manager->get('User')->fetchByUserName($user_name);$/;"	v
+user_name	controllers/AccountController.php	/^        $user_name = $this->request->getPost('user_name');$/;"	v
+view	core/Controller.php	/^        $view = new View($this->application->getViewDir(), $defaults);$/;"	v

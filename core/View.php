@@ -19,7 +19,7 @@ class View
 
     public function render($_path, $_variables, $_layout = false)
     {
-        $_file = $this->base_dir . '/' . $path . ".php";
+        $_file = $this->base_dir . '/' . $_path . ".php";
 
         extract(array_merge($this->defaults, $_variables));
 
@@ -30,15 +30,16 @@ class View
 
         $content = ob_get_clean();
 
-        if ($layout) {
+        if ($_layout) {
             $content = $this->render($_layout,
                                     array_merge($this->layout_variables, [ "_content" => $content, ]));
         }
+
         return $content;
-        
-        public function escape($string)
-        {
-            return htmlspecialchars($string, ENT_QUOTES, "UTF-8");
-        }
+    }
+
+    public function escape($string)
+    {
+        return htmlspecialchars($string, ENT_QUOTES, "UTF-8");
     }
 }

@@ -57,7 +57,7 @@ class DbManager
 
     public function get($repository_name)
     {
-        if (!isset($repositories[$repository_name]) {
+        if (!isset($repositories[$repository_name])) {
             $repository_class = $repository_name . "Repository";
             $con = $this->getConnectionForRepository($repository_name);
 

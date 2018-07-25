@@ -1,14 +1,14 @@
 <?php
 
 abstract class Application
-    $debug = false;
-    $request;
-    $response;
-    $session;
-    $db_manager;
-    $login_action = [];
-
 {
+    protected $debug = false;
+    protected $request;
+    protected $response;
+    protected $session;
+    protected $db_manager;
+    protected $login_action = [];
+
     public function __construct($debug = false) 
     {
         $this->setDebugMode($debug);
@@ -66,12 +66,12 @@ abstract class Application
     
     public function getDbManager()
     {
-        return $this->DbManager;
+        return $this->db_manager;
     }
 
     public function getCotrollerDir()
     {
-        return $this->getRootDir() . "/controller";
+        return $this->getRootDir() . "/controllers";
     }
 
     public function getViewDir()
@@ -79,7 +79,7 @@ abstract class Application
         return $this->getRootDir() . "/views";
     }
     
-    public getModelDir()
+    public function getModelDir()
     {
         return $this->getRootDir() . "/models";
     }
@@ -116,7 +116,6 @@ abstract class Application
         $controller_class = ucfirst($controller_name) . "Controller";
         
         $controller = $this->findController($controller_class);
-        
         if ($controller === false) {
             throw new HttpNotFoundException($controller_class . " controller is not found");
         }
@@ -126,10 +125,10 @@ abstract class Application
         $this->response->setContent($content);
     }
     
-    protected function findControlle($controller_class)
+    protected function findController($controller_class)
     {
         if(!class_exists($controller_class)) {
-            $controller_file = this->getCotrollerDir() . '/' . $controller_class;
+            $controller_file = $this->getCotrollerDir() . '/' . $controller_class . ".php";
             if ( !is_readable($controller_file) ) {
                 return false;
             } else {
