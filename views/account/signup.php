@@ -9,6 +9,6 @@
     <?php echo $this->render('errors', ['errors' => $errors]); ?>
     <?php endif; ?>
 
-    <?php $this->render('account/inputs', ['user_name' => $user_name, 'password' => $password]); ?>
+    <?php echo $this->render('account/inputs', ['user_name' => $user_name, 'password' => $password]); ?>
     <p><input type="submit" value="登録" /></p>
 </form>

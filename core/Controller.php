@@ -35,7 +35,6 @@ Class Controller
         if ( $this->needsAuthentication($action) && !$this->session->isAuthenticated() ) {
             throw new UnauthorizedActionException();
         }
-        
         $content = $this->$action_method($params);
         
         return $content;
@@ -83,7 +82,7 @@ Class Controller
     
             $url = $protocol . $host . $base_url;
         }
-    
+
         $this->response->setStatusCode(302, 'Found');
         $this->response->setHttpHeader("Location", $url);
     }

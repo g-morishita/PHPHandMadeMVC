@@ -14,12 +14,19 @@ class MiniBlogApplication extends Application
         return [
                 '/' 
                     => ['controller' => 'status', 'action' => 'index' ],
+
                 '/status/post'
                     => ['controller' => 'status', 'action' => 'post' ],
+
                 '/account'
                     => ['controller' => 'account', 'action' => 'index' ],
+
                 '/account/:action'
                     => ['controller' => 'account'],
+
+                '/user/:user_name' => ['controller' => 'status', 'action' => 'user'],
+                
+                '/user/:user_name/status/:id' => ['controller' => 'status', 'action' => 'show'],
                 ];
     }
 

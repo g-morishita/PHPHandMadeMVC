@@ -7,7 +7,7 @@
             </td>
         </tr>
         <tr>
-            <th>iパスワード</th>
+            <th>パスワード</th>
             <td>
                 <input type="password" name="password" value="<?php echo $this->escape($password)?>" />
             </td>

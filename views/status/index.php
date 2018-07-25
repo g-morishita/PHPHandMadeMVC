@@ -6,7 +6,7 @@
     <input type="hidden" name="_token" value="<?php echo $this->escape($_token); ?>" />
 
     <?php if (isset($errors) && count($errors) > 0 ): ?>
-    <?php echo $this->render('errors', ['error' => $errors]); ?>
+        <?php echo $this->render('errors', ['errors' => $errors]); ?>
     <?php endif; ?>
 
     <textarea name="body" cols="60" rows="2"><?php echo $this->escape($body); ?></textarea>
@@ -15,6 +15,6 @@
 
 <div id="statuses">
     <?php foreach ($statuses as $status): ?>
-        <?php $this->render('status/status', [ 'status' => $status ]); ?>
+        <?php echo $this->render('status/status', [ 'status' => $status ]); ?>
     <?php endforeach; ?>
 </div>
