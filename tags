@@ -9,12 +9,14 @@ Application	core/Application.php	/^abstract class Application$/;"	c
 ClassLoader	core/ClassLoader.php	/^class ClassLoader $/;"	c
 DbManager	core/DbManager.php	/^class DbManager$/;"	c
 DbRepository	core/DbRepository.php	/^class DbRepository$/;"	c
+FollowingRepository	models/FollowingRepository.php	/^class FollowingRepository extends DbRepository$/;"	c
 HttpNotFoundException	core/HttpNotFoundException.php	/^class HttpNotFoundException extends Exception {};$/;"	c
 MiniBlogApplication	MiniBlogApplication.php	/^class MiniBlogApplication extends Application$/;"	c
 Request	core/Request.php	/^class Request {$/;"	c
 Response	core/Response.php	/^class Response $/;"	c
 Router	core/Router.php	/^class Router$/;"	c
 Session	core/Session.php	/^class Session$/;"	c
+StatusRepository	models/StatusRepository.php	/^class StatusRepository extends DbRepository {$/;"	c
 UnauthorizedActionException	core/UnauthorizedActionException.php	/^class UnauthorizedActionException extends Exception {}$/;"	c
 UserRepository	models/UserRepository.php	/^class UserRepository extends DbRepository$/;"	c
 View	core/View.php	/^class View$/;"	c
@@ -36,11 +38,15 @@ app	web/index.php	/^$app = new MiniBlogApplication(false);$/;"	v
 app	web/index_dev.php	/^$app = new MiniBlogApplication(true);$/;"	v
 application	core/Controller.php	/^        $this->application = $application;$/;"	v
 application	core/Controller.php	/^    protected $application;$/;"	v
+auth_actions	controllers/AccountController.php	/^    protected $auth_actions = ['index', 'signout', 'follow'];$/;"	v
+auth_actions	controllers/StatusController.php	/^    protected $auth_actions = ['index', 'post'];$/;"	v
 auth_actions	core/Controller.php	/^    protected $auth_actions = [];$/;"	v
+authenticateAction	controllers/AccountController.php	/^    public function authenticateAction()$/;"	f
 base_dir	core/View.php	/^        $this->base_dir = $base_dir;$/;"	v
 base_dir	core/View.php	/^    protected $base_dir;$/;"	v
 base_url	core/Controller.php	/^            $base_url = $this->request->getBaseUrl();$/;"	v
 base_url	core/Request.php	/^        $base_url = $this->getBaseUrl();$/;"	v
+body	controllers/StatusController.php	/^        $body = $this->request->getPost('body');$/;"	v
 checkCsrfToken	core/Controller.php	/^    protected function checkCsrfToken($form_name, $token)$/;"	f
 classLoader	bootstrap.php	/^$classLoader = ClassLoader::getInstance(array(dirname(__FILE__) . '\/core', dirname(__FILE__) . '\/models'));$/;"	v
 classLoader	core/ClassLoader.php	/^    private static $classLoader;$/;"	v
@@ -80,13 +86,25 @@ defaults	core/View.php	/^    protected $defaults;$/;"	v
 dirs	core/ClassLoader.php	/^        $this->dirs = $dirs;$/;"	v
 dirs	core/ClassLoader.php	/^    private $dirs;$/;"	v
 errors	controllers/AccountController.php	/^        $errors = [];$/;"	v
+errors	controllers/StatusController.php	/^        $errors = [];$/;"	v
 escape	core/View.php	/^    public function escape($string)$/;"	f
 execute	core/DbRepository.php	/^    public function execute($sql, $params = [])$/;"	f
 fetch	core/DbRepository.php	/^    public function fetch($sql, $params = [])$/;"	f
 fetchAll	core/DbRepository.php	/^    public function fetchAll($sql, $params = [])$/;"	f
+fetchAllByUserId	models/StatusRepository.php	/^    public function fetchAllByUserId($user_id)$/;"	f
+fetchAllFollowingByUserId	models/UserRepository.php	/^    public function fetchAllFollowingByUserId($user_id)$/;"	f
+fetchAllPersonalArchivesByUserId	models/StatusRepository.php	/^    public function fetchAllPersonalArchivesByUserId($user_id)$/;"	f
+fetchByIdAndUserName	models/StatusRepository.php	/^    public function fetchByIdAndUserName($id, $user_name)$/;"	f
 fetchByUserName	models/UserRepository.php	/^    public function fetchByUserName($user_name)$/;"	f
 file	core/ClassLoader.php	/^            $file = $dir . '\/' . $class . '.php';$/;"	v
 findController	core/Application.php	/^    protected function findController($controller_class)$/;"	f
+followAction	controllers/AccountController.php	/^    public function followAction()$/;"	f
+following	controllers/StatusController.php	/^                $following = $this->db_manager->get('Following')->isFollowing($my['id'], $user['id']);$/;"	v
+following	controllers/StatusController.php	/^        $following = null;$/;"	v
+following_name	controllers/AccountController.php	/^        $following_name = $this->request->getPost('following_name');$/;"	v
+following_repository	controllers/AccountController.php	/^        $following_repository = $this->db_manager->get('Following');$/;"	v
+following_user	controllers/AccountController.php	/^        $following_user = $this->db_manager->get('User')->fetchByUserName($following_name);$/;"	v
+followings	controllers/AccountController.php	/^        $followings = $this->db_manager->get('User')->fetchAllFollowingByUserId($user['id']);$/;"	v
 forward404	core/Controller.php	/^    protected function forward404()$/;"	f
 generateCsrfToken	core/Controller.php	/^    protected function generateCsrfToken($form_name)$/;"	f
 get	core/DbManager.php	/^    public function get($repository_name)$/;"	f
@@ -112,10 +130,15 @@ getWebDir	core/Application.php	/^    public function getWebDir()$/;"	f
 hashPassword	models/UserRepository.php	/^    public function hashPassword($password)$/;"	f
 host	core/Controller.php	/^            $host = $this->request->getHost();$/;"	v
 http_headers	core/Response.php	/^    protected $http_headers = [];$/;"	v
+indexAction	controllers/AccountController.php	/^    public function indexAction($params)$/;"	f
+indexAction	controllers/StatusController.php	/^    public function indexAction()$/;"	f
 initialize	core/Application.php	/^    protected function initialize()$/;"	f
+insert	models/FollowingRepository.php	/^    public function insert($user_id, $following_id)$/;"	f
+insert	models/StatusRepository.php	/^    public function insert($user_id, $body)$/;"	f
 insert	models/UserRepository.php	/^    public function insert($user_name, $password)$/;"	f
 isAuthenticated	core/Session.php	/^    public function isAuthenticated()$/;"	f
 isDebugMode	core/Application.php	/^    public function isDebugMode()$/;"	f
+isFollowing	models/FollowingRepository.php	/^    public function isFollowing($user_id, $following_id)$/;"	f
 isPost	core/Request.php	/^    public function isPost() $/;"	f
 isSsl	core/Request.php	/^    public function isSsl()$/;"	f
 isUniqueUserName	models/UserRepository.php	/^    public function isUniqueUserName($user_name)$/;"	f
@@ -126,19 +149,23 @@ login_action	MiniBlogApplication.php	/^    protected $login_action = ['account',
 login_action	core/Application.php	/^    protected $login_action = [];$/;"	v
 message	core/Application.php	/^        $message = $this->isDebugMode() ? $e->getMessage() : 'Page Not Found';$/;"	v
 message	core/Application.php	/^        $message = htmlspecialchars($message, ENT_QUOTES, "UTF-8");$/;"	v
+my	controllers/StatusController.php	/^            $my = $this->session->get('user');$/;"	v
 name	core/DbManager.php	/^            $name = $this->repository_connection_map[$repository_name];$/;"	v
 name	core/Router.php	/^                    $name = substr($token, 1);$/;"	v
 needsAuthentication	core/Controller.php	/^    protected function needsAuthentication($action) $/;"	f
+now	models/StatusRepository.php	/^        $now = new DateTime();$/;"	v
 now	models/UserRepository.php	/^        $now      = new DateTime();$/;"	v
 param	core/Application.php	/^            $param = $this->router->resolve($this->request->getPathInfo());$/;"	v
 params	core/DbManager.php	/^        $params = array_merge([$/;"	v
 params	core/Router.php	/^                $params = array_merge($params, $matches);$/;"	v
+password	controllers/AccountController.php	/^        $password  = $this->request->getPost('password');$/;"	v
 password	controllers/AccountController.php	/^        $password = $this->request->getPost('password');$/;"	v
 password	models/UserRepository.php	/^        $password = $this->hashPassword($password);$/;"	v
 path	core/Controller.php	/^        $path = $this->controller_name . '\/' . $template;$/;"	v
 path_info	core/Request.php	/^        $path_info = (string)substr($request_uri, strlen($base_url));$/;"	v
 path_info	core/Router.php	/^            $path_info = '\/' . $path_info;$/;"	v
 pattern	core/Router.php	/^            $pattern = '\/' . implode('\/', $tokens);$/;"	v
+postAction	controllers/StatusController.php	/^    public function postAction()$/;"	f
 protocol	core/Controller.php	/^            $protocol = $this->request->isSsl() ? "https:\/\/" : "http:\/\/";$/;"	v
 redirect	core/Controller.php	/^    protected function redirect($url)$/;"	f
 regenerate	core/Session.php	/^    public function regenerate($destroy = true)$/;"	f
@@ -168,6 +195,7 @@ router	core/Application.php	/^        $this->router     = new Router($this->regi
 routes	core/Router.php	/^        $routes = [];$/;"	v
 routes	core/Router.php	/^        $this->routes = $this->compileRoutes($defenitions); $/;"	v
 routes	core/Router.php	/^    protected $routes;$/;"	v
+row	models/FollowingRepository.php	/^        $row = $this->fetch($sql, [$/;"	v
 row	models/UserRepository.php	/^        $row = $this->fetch($sql, [':user_name' => $user_name]);$/;"	v
 run	core/Application.php	/^    public function run()$/;"	f
 run	core/Controller.php	/^    public function run($action, $params = []) {$/;"	f
@@ -191,18 +219,32 @@ setHttpHeader	core/Response.php	/^    public function setHttpHeader($name, $valu
 setLayoutVar	core/View.php	/^    public function setLayoutVar($name, $val)$/;"	f
 setRepositoryConnectionMap	core/DbManager.php	/^    public function setRepositoryConnectionMap($repository_name, $name)$/;"	f
 setStatusCode	core/Response.php	/^    public function setStatusCode($status_code, $status_text = '') $/;"	f
+showAction	controllers/StatusController.php	/^    public function showAction($params)$/;"	f
+signinAction	controllers/AccountController.php	/^    public function signinAction()$/;"	f
+signoutAction	controllers/AccountController.php	/^    public function signoutAction()$/;"	f
 signupAction	controllers/AccountController.php	/^    public function signupAction()$/;"	f
+sql	models/FollowingRepository.php	/^        $sql = "$/;"	v
+sql	models/FollowingRepository.php	/^        $sql = "INSERT INTO following VALUES(:user_id, :following_id)";$/;"	v
+sql	models/StatusRepository.php	/^        $sql = "$/;"	v
 sql	models/UserRepository.php	/^        $sql = "$/;"	v
 sql	models/UserRepository.php	/^        $sql = "SELECT * FROM user WHERE user_name = :user_name";$/;"	v
 sql	models/UserRepository.php	/^        $sql = "SELECT COUNT(id) as count FROM user WHERE user_name = :user_name";$/;"	v
+status	controllers/StatusController.php	/^        $status = $this->db_manager->get('Status')->fetchByIdAndUserName($params['id'], $params['user_name']);$/;"	v
+statusController	controllers/StatusController.php	/^class statusController extends Controller$/;"	c
 status_code	core/Response.php	/^        $this->status_code = $status_code;$/;"	v
 status_code	core/Response.php	/^    protected $status_code = 200;$/;"	v
 status_text	core/Response.php	/^        $this->status_text = $status_text;$/;"	v
 status_text	core/Response.php	/^    protected $status_text = "OK";$/;"	v
+statuses	controllers/StatusController.php	/^        $statuses = $this->db_manager->get('Status')$/;"	v
+statuses	controllers/StatusController.php	/^        $statuses = $this->db_manager->get('Status')->fetchAllByUserId($user['id']);$/;"	v
+statuses	controllers/StatusController.php	/^        $statuses = $this->db_manager->get('Status')->fetchAllPersonalArchivesByUserId($user['id']);$/;"	v
 stmt	core/DbRepository.php	/^        $stmt = $this->con->prepare($sql);$/;"	v
+stmt	models/FollowingRepository.php	/^        $stmt = $this->execute($sql, [$/;"	v
+stmt	models/StatusRepository.php	/^        $stmt = $this->execute($sql, [$/;"	v
 stmt	models/UserRepository.php	/^        $stmt = $this->execute($sql, [$/;"	v
 template	core/Controller.php	/^            $template = $this->action_name; $/;"	v
 token	controllers/AccountController.php	/^        $token = $this->request->getPost('_token');$/;"	v
+token	controllers/StatusController.php	/^        $token = $this->request->getPost('_token');$/;"	v
 token	core/Controller.php	/^        $token = sha1($form_name . session_id() . microtime());$/;"	v
 token	core/Router.php	/^                    $token = '(?P<' . $name . '>[^\/]+)';$/;"	v
 tokens	core/Controller.php	/^        $tokens = $this->session->get($key, []); $/;"	v
@@ -210,5 +252,12 @@ tokens	core/Controller.php	/^        $tokens = $this->session->get($key, []);$/;
 tokens	core/Router.php	/^            $tokens = explode('\/', ltrim($url, '\/')); $/;"	v
 url	core/Controller.php	/^            $url = $protocol . $host . $base_url;$/;"	v
 user	controllers/AccountController.php	/^            $user = $this->db_manager->get('User')->fetchByUserName($user_name);$/;"	v
+user	controllers/AccountController.php	/^            $user = $user_repository->fetchByUserName($user_name);$/;"	v
+user	controllers/AccountController.php	/^        $user = $this->session->get('user');$/;"	v
+user	controllers/StatusController.php	/^            $user = $this->session->get('user');$/;"	v
+user	controllers/StatusController.php	/^        $user = $this->db_manager->get('User')->fetchByUserName($params['user_name']);$/;"	v
+user	controllers/StatusController.php	/^        $user = $this->session->get('user');$/;"	v
+userAction	controllers/StatusController.php	/^    public function userAction($params)$/;"	f
 user_name	controllers/AccountController.php	/^        $user_name = $this->request->getPost('user_name');$/;"	v
+user_repository	controllers/AccountController.php	/^            $user_repository = $this->db_manager->get('User');$/;"	v
 view	core/Controller.php	/^        $view = new View($this->application->getViewDir(), $defaults);$/;"	v
